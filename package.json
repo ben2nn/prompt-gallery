@@ -1,0 +1,45 @@
+{
+  "name": "prompt-gallery",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:pages": "npx wrangler pages dev --compatibility-date=2024-01-01 --d1=DB --port=3000 -- npm run dev",
+    "build": "npx @cloudflare/next-on-pages",
+    "start": "next start",
+    "lint": "next lint",
+    "docker:build": "docker build -t prompt-gallery .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env.local prompt-gallery",
+    "docker:build-prod": "docker build --build-arg NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1 -t prompt-gallery:prod .",
+    "preview": "npx wrangler pages dev .vercel/output/static --compatibility-date=2024-01-01 --d1=DB --port=3000",
+    "deploy": "npx wrangler pages deploy .vercel/output/static",
+    "db:create": "npx wrangler d1 create prompt-gallery-db",
+    "db:migrate:local": "npx wrangler d1 execute prompt-gallery-db --local --file=../migrations/001_initial_schema.sql",
+    "db:migrate:remote": "npx wrangler d1 execute prompt-gallery-db --remote --file=../migrations/001_initial_schema.sql",
+    "db:seed:local": "node ../scripts/seed-local-db.js",
+    "db:reset:local": "npx wrangler d1 execute prompt-gallery-db --local --command=\"DROP TABLE IF EXISTS prompt_tags; DROP TABLE IF EXISTS prompt_versions; DROP TABLE IF EXISTS prompts; DROP TABLE IF EXISTS prompt_classes; DROP TABLE IF EXISTS tags;\" && npm run db:migrate:local && npm run db:seed:local"
+  },
+  "dependencies": {
+    "@types/react-window": "^2.0.0",
+    "axios": "^1.12.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.11",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "better-sqlite3": "^12.4.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5",
+    "wrangler": "^4.45.1"
+  }
+}

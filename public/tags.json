@@ -1,0 +1,296 @@
+{
+    "success": true,
+    "data": {
+        "items": [
+            {
+                "name": "3d",
+                "color": "#FF6B6B",
+                "id": 31,
+                "created_at": "2025-10-27T06:56:44.416021Z",
+                "updated_at": "2025-10-27T06:56:44.416021Z",
+                "prompt_count": 18
+            },
+            {
+                "name": "animal",
+                "color": "#98D8C8",
+                "id": 25,
+                "created_at": "2025-10-27T06:55:58.227192Z",
+                "updated_at": "2025-10-27T06:55:58.227192Z",
+                "prompt_count": 25
+            },
+            {
+                "name": "architecture",
+                "color": "#FFA07A",
+                "id": 34,
+                "created_at": "2025-10-27T06:57:01.204821Z",
+                "updated_at": "2025-10-27T06:57:01.204821Z",
+                "prompt_count": 13
+            },
+            {
+                "name": "branding",
+                "color": "#85C1E2",
+                "id": 18,
+                "created_at": "2025-10-27T06:55:10.138771Z",
+                "updated_at": "2025-10-27T06:55:10.138771Z",
+                "prompt_count": 82
+            },
+            {
+                "name": "cartoon",
+                "color": "#4ECDC4",
+                "id": 32,
+                "created_at": "2025-10-27T06:56:44.416021Z",
+                "updated_at": "2025-10-27T06:56:44.416021Z",
+                "prompt_count": 46
+            },
+            {
+                "name": "character",
+                "color": "#FF6B6B",
+                "id": 21,
+                "created_at": "2025-10-27T06:55:34.321729Z",
+                "updated_at": "2025-10-27T06:55:34.321729Z",
+                "prompt_count": 69
+            },
+            {
+                "name": "clay",
+                "color": "#F7DC6F",
+                "id": 46,
+                "created_at": "2025-10-27T07:04:31.329653Z",
+                "updated_at": "2025-10-27T07:04:31.329653Z",
+                "prompt_count": 5
+            },
+            {
+                "name": "creative",
+                "color": "#F8B739",
+                "id": 39,
+                "created_at": "2025-10-27T06:58:15.533580Z",
+                "updated_at": "2025-10-27T06:58:15.533580Z",
+                "prompt_count": 18
+            },
+            {
+                "name": "emoji",
+                "color": "#4ECDC4",
+                "id": 42,
+                "created_at": "2025-10-27T06:58:45.590044Z",
+                "updated_at": "2025-10-27T06:58:45.590044Z",
+                "prompt_count": 11
+            },
+            {
+                "name": "fantasy",
+                "color": "#FFA07A",
+                "id": 44,
+                "created_at": "2025-10-27T07:00:31.118016Z",
+                "updated_at": "2025-10-27T07:00:31.118016Z",
+                "prompt_count": 13
+            },
+            {
+                "name": "fashion",
+                "color": "#FF6B6B",
+                "id": 11,
+                "created_at": "2025-10-27T06:54:56.054233Z",
+                "updated_at": "2025-10-27T06:54:56.054233Z",
+                "prompt_count": 37
+            },
+            {
+                "name": "felt",
+                "color": "#52B788",
+                "id": 40,
+                "created_at": "2025-10-27T06:58:31.325972Z",
+                "updated_at": "2025-10-27T06:58:31.325972Z",
+                "prompt_count": 5
+            },
+            {
+                "name": "food",
+                "color": "#F7DC6F",
+                "id": 26,
+                "created_at": "2025-10-27T06:56:08.102465Z",
+                "updated_at": "2025-10-27T06:56:08.102465Z",
+                "prompt_count": 18
+            },
+            {
+                "name": "futuristic",
+                "color": "#85C1E2",
+                "id": 28,
+                "created_at": "2025-10-27T06:56:20.771701Z",
+                "updated_at": "2025-10-27T06:56:20.771701Z",
+                "prompt_count": 28
+            },
+            {
+                "name": "gaming",
+                "color": "#85C1E2",
+                "id": 38,
+                "created_at": "2025-10-27T06:58:07.807546Z",
+                "updated_at": "2025-10-27T06:58:07.807546Z",
+                "prompt_count": 6
+            },
+            {
+                "name": "illustration",
+                "color": "#45B7D1",
+                "id": 23,
+                "created_at": "2025-10-27T06:55:42.225130Z",
+                "updated_at": "2025-10-27T06:55:42.225130Z",
+                "prompt_count": 49
+            },
+            {
+                "name": "infographic",
+                "color": "#FF6B6B",
+                "id": 41,
+                "created_at": "2025-10-27T06:58:42.366310Z",
+                "updated_at": "2025-10-27T06:58:42.366310Z",
+                "prompt_count": 3
+            },
+            {
+                "name": "interior",
+                "color": "#45B7D1",
+                "id": 13,
+                "created_at": "2025-10-27T06:54:58.775139Z",
+                "updated_at": "2025-10-27T06:54:58.775139Z",
+                "prompt_count": 30
+            },
+            {
+                "name": "landscape",
+                "color": "#F7DC6F",
+                "id": 16,
+                "created_at": "2025-10-27T06:55:06.897316Z",
+                "updated_at": "2025-10-27T06:55:06.897316Z",
+                "prompt_count": 79
+            },
+            {
+                "name": "logo",
+                "color": "#FFA07A",
+                "id": 24,
+                "created_at": "2025-10-27T06:55:55.142216Z",
+                "updated_at": "2025-10-27T06:55:55.142216Z",
+                "prompt_count": 62
+            },
+            {
+                "name": "minimalist",
+                "color": "#FFA07A",
+                "id": 14,
+                "created_at": "2025-10-27T06:55:01.648085Z",
+                "updated_at": "2025-10-27T06:55:01.648085Z",
+                "prompt_count": 89
+            },
+            {
+                "name": "nature",
+                "color": "#BB8FCE",
+                "id": 17,
+                "created_at": "2025-10-27T06:55:06.897316Z",
+                "updated_at": "2025-10-27T06:55:06.897316Z",
+                "prompt_count": 96
+            },
+            {
+                "name": "neon",
+                "color": "#98D8C8",
+                "id": 45,
+                "created_at": "2025-10-27T07:00:50.398661Z",
+                "updated_at": "2025-10-27T07:00:50.398661Z",
+                "prompt_count": 23
+            },
+            {
+                "name": "paper-craft",
+                "color": "#F8B739",
+                "id": 29,
+                "created_at": "2025-10-27T06:56:38.264474Z",
+                "updated_at": "2025-10-27T06:56:38.264474Z",
+                "prompt_count": 33
+            },
+            {
+                "name": "photography",
+                "color": "#98D8C8",
+                "id": 15,
+                "created_at": "2025-10-27T06:55:01.648085Z",
+                "updated_at": "2025-10-27T06:55:01.648085Z",
+                "prompt_count": 115
+            },
+            {
+                "name": "pixel",
+                "color": "#45B7D1",
+                "id": 33,
+                "created_at": "2025-10-27T06:56:44.416021Z",
+                "updated_at": "2025-10-27T06:56:44.416021Z",
+                "prompt_count": 12
+            },
+            {
+                "name": "portrait",
+                "color": "#4ECDC4",
+                "id": 12,
+                "created_at": "2025-10-27T06:54:56.054233Z",
+                "updated_at": "2025-10-27T06:54:56.054233Z",
+                "prompt_count": 69
+            },
+            {
+                "name": "poster",
+                "color": "#BB8FCE",
+                "id": 27,
+                "created_at": "2025-10-27T06:56:08.102465Z",
+                "updated_at": "2025-10-27T06:56:08.102465Z",
+                "prompt_count": 27
+            },
+            {
+                "name": "product",
+                "color": "#98D8C8",
+                "id": 35,
+                "created_at": "2025-10-27T06:57:09.280747Z",
+                "updated_at": "2025-10-27T06:57:09.280747Z",
+                "prompt_count": 58
+            },
+            {
+                "name": "retro",
+                "color": "#52B788",
+                "id": 20,
+                "created_at": "2025-10-27T06:55:28.613645Z",
+                "updated_at": "2025-10-27T06:55:28.613645Z",
+                "prompt_count": 24
+            },
+            {
+                "name": "sci-fi",
+                "color": "#45B7D1",
+                "id": 43,
+                "created_at": "2025-10-27T06:59:56.588755Z",
+                "updated_at": "2025-10-27T06:59:56.588755Z",
+                "prompt_count": 10
+            },
+            {
+                "name": "sculpture",
+                "color": "#F7DC6F",
+                "id": 36,
+                "created_at": "2025-10-27T06:57:18.247040Z",
+                "updated_at": "2025-10-27T06:57:18.247040Z",
+                "prompt_count": 19
+            },
+            {
+                "name": "toy",
+                "color": "#F8B739",
+                "id": 19,
+                "created_at": "2025-10-27T06:55:16.665333Z",
+                "updated_at": "2025-10-27T06:55:16.665333Z",
+                "prompt_count": 31
+            },
+            {
+                "name": "typography",
+                "color": "#BB8FCE",
+                "id": 37,
+                "created_at": "2025-10-27T06:57:26.100433Z",
+                "updated_at": "2025-10-27T06:57:26.100433Z",
+                "prompt_count": 23
+            },
+            {
+                "name": "ui",
+                "color": "#52B788",
+                "id": 30,
+                "created_at": "2025-10-27T06:56:38.264474Z",
+                "updated_at": "2025-10-27T06:56:38.264474Z",
+                "prompt_count": 10
+            },
+            {
+                "name": "vehicle",
+                "color": "#4ECDC4",
+                "id": 22,
+                "created_at": "2025-10-27T06:55:34.321729Z",
+                "updated_at": "2025-10-27T06:55:34.321729Z",
+                "prompt_count": 77
+            }
+        ],
+        "tagged_prompt_total": 367
+    }
+}
