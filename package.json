@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:pages": "npx wrangler pages dev --compatibility-date=2024-01-01 --d1=DB --port=3000 -- npm run dev",
-    "build": "npx @cloudflare/next-on-pages",
+    "build": "next build && npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
     "docker:build": "docker build -t prompt-gallery .",
@@ -24,7 +24,7 @@
     "axios": "^1.12.2",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.11",
-    "next": "^14.2.15",
+    "next": "^15.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -36,7 +36,7 @@
     "autoprefixer": "^10.4.20",
     "better-sqlite3": "^12.4.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.15",
+    "eslint-config-next": "^15.0.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
     "typescript": "^5",
