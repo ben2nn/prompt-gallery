@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:pages": "npx wrangler pages dev --compatibility-date=2024-01-01 --d1=DB --port=3000 -- npm run dev",
     "build": "next build",
-    "build:page": "next build && npx @cloudflare/next-on-pages",
+    "build:page": "NODE_ENV=production next build && npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
     "docker:build": "docker build -t prompt-gallery .",
