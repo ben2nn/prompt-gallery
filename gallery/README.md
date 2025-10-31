@@ -1,4 +1,4 @@
-﻿# Prompt Gallery - 提示词展示网站
+# Prompt Gallery - 提示词展示网站
 
 一个简洁美观的提示词展示网站，基于 Next.js 14 开发，完全仿照 OpenNana 提示词画廊的设计和功能。
 
@@ -27,34 +27,16 @@
 
 ### 环境要求
 
-- Node.js 18+
+- Node.js 20+
 - npm 或 yarn
 
-### 本地开发（Cloudflare Pages 模式）
-
-如果你想在本地开发和测试 Cloudflare Pages 功能（包括 D1 数据库和 Pages Functions），请参考 [本地开发指南](./LOCAL_DEVELOPMENT.md)。
-
-快速设置：
-
-```powershell
-# Windows PowerShell
-..\scripts\setup-local-dev.ps1
-
-# Linux/Mac
-bash ../scripts/setup-local-dev.sh
-```
-
-### 传统开发模式
-
-如果你只需要开发前端功能，可以使用传统的 Next.js 开发模式：
-
-#### 安装依赖
+### 安装依赖
 
 ```powershell
 npm install
 ```
 
-#### 配置环境变量
+### 配置环境变量
 
 复制 `.env.example` 到 `.env.local`：
 
@@ -68,7 +50,7 @@ Copy-Item .env.example .env.local
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
 ```
 
-#### 启动开发服务器
+### 启动开发服务器
 
 ```powershell
 npm run dev
@@ -78,26 +60,11 @@ npm run dev
 
 ## 可用脚本
 
-### 开发脚本
-
-- `npm run dev` - 启动标准 Next.js 开发服务器
-- `npm run dev:pages` - 启动 Cloudflare Pages 开发服务器（含 D1 数据库）
-- `npm run build` - 构建 Cloudflare Pages 生产版本
-- `npm run preview` - 预览生产构建
-- `npm run start` - 启动 Next.js 生产服务器
+- `npm run dev` - 启动开发服务器
+- `npm run build` - 构建生产版本
+- `npm run start` - 启动生产服务器
 - `npm run lint` - 运行 ESLint 检查
-
-### 数据库脚本
-
-- `npm run db:create` - 创建 D1 数据库
-- `npm run db:migrate:local` - 在本地执行数据库迁移
-- `npm run db:migrate:remote` - 在远程执行数据库迁移
-- `npm run db:seed:local` - 填充本地测试数据
-- `npm run db:reset:local` - 重置本地数据库
-
-### 部署脚本
-
-- `npm run deploy` - 部署到 Cloudflare Pages
+- `npm run preview` - 构建并预览生产版本
 - `npm run docker:build` - 构建 Docker 镜像
 - `npm run docker:run` - 运行 Docker 容器
 
@@ -247,9 +214,7 @@ MIT License
 
 ## 相关链接
 
-- [本地开发指南](./LOCAL_DEVELOPMENT.md) - Cloudflare Pages 本地开发详细说明
 - [Next.js 文档](https://nextjs.org/docs)
 - [Tailwind CSS 文档](https://tailwindcss.com/docs)
 - [Framer Motion 文档](https://www.framer.com/motion/)
-- [Cloudflare Pages 文档](https://developers.cloudflare.com/pages/)
-- [Cloudflare D1 文档](https://developers.cloudflare.com/d1/)
+- [部署指南](./DEPLOYMENT.md)
