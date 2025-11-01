@@ -60,8 +60,9 @@ interface StaggeredCardProps {
 /**
  * StaggeredCard 组件 - 交错动画卡片
  * 为新加载的卡片提供交错进入动画
+ * 使用 React.memo 优化性能
  */
-export const StaggeredCard: React.FC<StaggeredCardProps> = ({
+const StaggeredCardComponent: React.FC<StaggeredCardProps> = ({
   children,
   index,
   isNewContent = false,
@@ -81,6 +82,9 @@ export const StaggeredCard: React.FC<StaggeredCardProps> = ({
     </div>
   );
 };
+
+// 使用 React.memo 避免不必要的重新渲染
+export const StaggeredCard = React.memo(StaggeredCardComponent);
 
 interface LoadingIndicatorProps {
   isVisible: boolean;

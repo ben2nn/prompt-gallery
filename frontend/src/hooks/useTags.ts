@@ -31,9 +31,13 @@ export const useTags = (): UseTagsReturn => {
       const response = await getTags();
 
       if (response.success) {
-        // 处理后端返回的标签数据，统一字段名
-        const processedTags = response.data.items.map(tag => ({
+        // 处理后端返回的标签数据
+        // 后端直接返回数组在 data 中
+        const tagsArray = Array.isArray(response.data) ? response.data : [];
+        
+        const processedTags = tagsArray.map(tag => ({
           ...tag,
+          id: String(tag.id),  // 确保 id 是字符串类型
           count: tag.prompt_count || tag.count || 0  // 兼容 prompt_count 和 count
         }));
 

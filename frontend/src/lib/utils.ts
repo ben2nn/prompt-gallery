@@ -15,8 +15,9 @@ export const getFullImageUrl = (url: string | undefined | null): string => {
     return url;
   }
 
-  // 如果是相对路径，拼接后端资源地址
-  const assetsBaseURL = '/assets';
-  const path = url.startsWith('/') ? url : `/${url}`;
-  return `${assetsBaseURL}${path}`;
+  // 如果是相对路径，拼接静态资源地址
+  // 后端返回的路径格式：attachments/xxx.png 或 thumbnails/xxx.png
+  // 需要拼接为：/assets/attachments/xxx.png
+  const path = url.startsWith('/') ? url.substring(1) : url;
+  return `/assets/${path}`;
 };

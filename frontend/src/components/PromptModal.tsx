@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { PromptModalProps } from '@/types';
 import { Modal } from './ui/Modal';
 import { getFullImageUrl } from '@/lib/utils';
+import { CachedImage } from './ui/CachedImage';
 
 /**
  * PromptModal 组件 - 提示词详情弹框
@@ -235,11 +235,11 @@ export const PromptModal: React.FC<PromptModalProps> = ({
                     animationFillMode: 'backwards'
                   }}
                 >
-                  <Image
-                    src={getFullImageUrl(attachment.download_url || attachment.thumbnail_url)}
-                    alt={attachment.original_filename || attachment.filename || `示例图片 ${attachmentIndex + 1}`}
+                  <CachedImage
+                    src={getFullImageUrl(attachment.file_path || attachment.thumbnail_path)}
+                    alt={attachment.original_filename || attachment.file_name || `示例图片 ${attachmentIndex + 1}`}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="object-contain transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   
@@ -252,7 +252,7 @@ export const PromptModal: React.FC<PromptModalProps> = ({
                   ">
                     <div className="text-white text-sm">
                       <p className="font-medium truncate">
-                        {attachment.original_filename || attachment.filename}
+                        {attachment.original_filename || attachment.file_name}
                       </p>
                       {attachment.file_size && (
                         <p className="text-xs opacity-80">

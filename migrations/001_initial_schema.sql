@@ -57,7 +57,7 @@ CREATE TABLE prompt_tag_links (
     tag_id INTEGER NOT NULL,
     PRIMARY KEY (prompt_id, tag_id),
     FOREIGN KEY (prompt_id) REFERENCES prompts(id) ON DELETE CASCADE,
-    FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
+    FOREIGN KEY (tag_id) REFERENCES prompt_tags(id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS prompt_attachments;

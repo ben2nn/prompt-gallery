@@ -43,19 +43,25 @@ export const Modal: React.FC<ModalProps> = ({
     };
   }, [isOpen, onClose]);
 
-  // 优化的滚动锁定 - 锁定内容区域滚动
+  // 优化的滚动锁定 - 使用事件监听而不是修改样式
   useEffect(() => {
     if (isOpen) {
-      // 找到滚动容器并锁定其滚动
+      // 阻止滚动事件，但不修改 DOM 样式
+      const preventScroll = (e: Event) => {
+        e.preventDefault();
+        e.stopPropagation();
+      };
+
       const scrollContainer = document.querySelector('.ultra-smooth-scroll') as HTMLElement;
       
       if (scrollContainer) {
-        const originalOverflow = scrollContainer.style.overflow;
-        scrollContainer.style.overflow = 'hidden';
+        // 使用 passive: false 确保可以阻止默认行为
+        scrollContainer.addEventListener('wheel', preventScroll, { passive: false });
+        scrollContainer.addEventListener('touchmove', preventScroll, { passive: false });
         
         return () => {
-          // 恢复滚动状态
-          scrollContainer.style.overflow = originalOverflow;
+          scrollContainer.removeEventListener('wheel', preventScroll);
+          scrollContainer.removeEventListener('touchmove', preventScroll);
         };
       }
     }

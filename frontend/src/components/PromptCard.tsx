@@ -1,14 +1,15 @@
-import React from 'react';
-import Image from 'next/image';
+import React, { memo } from 'react';
 import { PromptCardProps } from '@/types';
 import { getFullImageUrl } from '@/lib/utils';
+import { CachedImage } from './ui/CachedImage';
 
 /**
  * PromptCard 组件 - 提示词卡片
  * 显示提示词的预览图片、标题和标签
  * 增强的悬停动画效果
+ * 使用 React.memo 优化性能，避免不必要的重新渲染
  */
-export const PromptCard: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
+const PromptCardComponent: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
   return (
     <div
       className="
@@ -36,11 +37,11 @@ export const PromptCard: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
       {/* 预览图片 */}
       <div className="relative w-full aspect-square bg-gray-100 dark:bg-slate-700 overflow-hidden">
         {prompt.attachments && prompt.attachments.length > 0 ? (
-          <Image
-            src={getFullImageUrl(prompt.attachments[0].thumbnail_url || prompt.attachments[0].download_url)}
+          <CachedImage
+            src={getFullImageUrl(prompt.attachments[0].thumbnail_path || prompt.attachments[0].file_path)}
             alt={prompt.name}
             fill
-            className="object-cover transition-smooth group-hover:scale-105"
+            className="object-contain transition-smooth group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
@@ -150,3 +151,10 @@ export const PromptCard: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
     </div>
   );
 };
+
+// 使用 React.memo 包裹组件，只在 props 真正改变时才重新渲染
+// 这样可以避免虚拟滚动时不必要的重新渲染和图片重新加载
+export const PromptCard = memo(PromptCardComponent, (prevProps, nextProps) => {
+  // 自定义比较函数：只有当 prompt.id 改变时才重新渲染
+  return prevProps.prompt.id === nextProps.prompt.id;
+});

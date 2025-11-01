@@ -156,7 +156,6 @@ export const SeamlessScrollDetector: React.FC<SeamlessScrollDetectorProps> = ({
     }
 
     if (shouldTrigger && onPreloadTrigger) {
-      console.log(`🚀 预加载触发: ${triggerReason}, 进度: ${(progress * 100).toFixed(1)}%, 速度: ${velocity.toFixed(2)}px/ms`);
       onPreloadTrigger(progress, velocity);
     }
   }, [preloadThreshold, enablePrediction, onPreloadTrigger]);

@@ -43,14 +43,13 @@ export const getPrompts = async (params?: {
   page?: number;
   limit?: number;
   offset?: number;
-  tag?: string;  // 保留单标签支持（向后兼容）
-  tags?: string[];  // 新增多标签支持
+  tags?: string[];  // 多标签支持
   search?: string;
   q?: string;
   media_type?: string;
 }): Promise<ApiResponse<Prompt[]> & { pagination?: PaginationInfo }> => {
   // 转换参数：前端使用 page/limit，后端使用 offset/limit
-  const { page = 1, limit = 20, search, tags, tag, ...rest } = params || {};
+  const { page = 1, limit = 20, search, tags, ...rest } = params || {};
   const offset = (page - 1) * limit;
   
   // 构建查询参数
@@ -62,17 +61,13 @@ export const getPrompts = async (params?: {
   };
   
   // 处理多标签参数
-  // 优先使用 tags 数组，如果没有则使用单个 tag
   if (tags && tags.length > 0) {
-    // 过滤掉 'all' 标签
-    const filteredTags = tags.filter(t => t !== 'all');
+    // 过滤掉 'all' 标签和空值
+    const filteredTags = tags.filter(t => t && t !== 'all' && t.trim() !== '');
     if (filteredTags.length > 0) {
       // 使用逗号分隔的格式：tags=1,3,5
       queryParams.tags = filteredTags.join(',');
     }
-  } else if (tag && tag !== 'all') {
-    // 向后兼容单标签模式
-    queryParams.tag = tag;
   }
   
   const response = await apiClient.get('/prompts', { 
@@ -111,7 +106,7 @@ export const getPromptById = async (id: string): Promise<ApiResponse<Prompt>> =>
  * 获取标签列表
  * @returns 所有可用标签
  */
-export const getTags = async (): Promise<ApiResponse<{ items: Tag[]; tagged_prompt_total: number }>> => {
+export const getTags = async (): Promise<ApiResponse<Tag[]>> => {
   const response = await apiClient.get('/tags');
   return response.data;
 };

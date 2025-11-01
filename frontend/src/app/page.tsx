@@ -4,7 +4,6 @@ import { useState, useMemo, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { PromptGrid } from '@/components/PromptGrid';
 import { PromptModal } from '@/components/PromptModal';
-import { ScrollToTop } from '@/components/ScrollToTop';
 
 import { useInfinitePrompts } from '@/hooks/useInfinitePrompts';
 
@@ -37,10 +36,11 @@ export default function Home() {
   
   // 将选中的标签转换为数组（用于API请求）
   // 使用稳定的字符串作为依赖，避免 Set 引用变化导致重复渲染
-  const selectedTagsString = Array.from(selectedTags).sort().join(',');
   const selectedTagsArray = useMemo(() => {
-    return Array.from(selectedTags);
-  }, [selectedTagsString]);
+    const tagsArray = Array.from(selectedTags);
+    // 过滤掉空字符串和无效值
+    return tagsArray.filter(tag => tag && tag.trim() !== '');
+  }, [Array.from(selectedTags).sort().join(',')]);
 
   // 使用简化的无限滚动 Hook 获取提示词数据
   const {
@@ -102,17 +102,17 @@ export default function Home() {
       const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
       
       if (scrollPercentage > 0.9 && hasMore && !promptsLoading) {
-        handleLoadMore();
+        loadMore();
       }
     };
 
-    // 获取滚动容器
-    const scrollContainer = document.querySelector('.ultra-smooth-scroll');
+    // 获取主滚动容器（使用 ID 选择器更精确）
+    const scrollContainer = document.getElementById('main-scroll-container');
     if (scrollContainer) {
       scrollContainer.addEventListener('scroll', handleScroll);
       return () => scrollContainer.removeEventListener('scroll', handleScroll);
     }
-  }, [hasMore, promptsLoading, handleLoadMore]);
+  }, [hasMore, promptsLoading, loadMore]);
 
   return (
     <main className="h-screen overflow-hidden">
@@ -125,6 +125,7 @@ export default function Home() {
 
       {/* 主要内容区域 - 设置为满窗口高度并启用滚动 */}
       <div 
+        id="main-scroll-container"
         className="h-screen overflow-y-auto ultra-smooth-scroll prevent-flash transition-smooth"
         style={{ 
           background: 'linear-gradient(to bottom, var(--surface), var(--background))' 
@@ -194,9 +195,6 @@ export default function Home() {
             </p>
           </div>
         </footer>
-
-        {/* 滚动到顶部按钮 */}
-        <ScrollToTop threshold={300} />
       </div>
     </main>
   );

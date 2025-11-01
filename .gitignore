@@ -2,6 +2,11 @@ node_modules/
 .wrangler/
 .dev.vars
 dist/
-out/
+.vscode
 *.log
 .DS_Store
+functions
+migrations
+docs
+database
+assets

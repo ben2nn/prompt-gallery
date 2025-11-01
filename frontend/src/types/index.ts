@@ -5,16 +5,15 @@ export type { Theme, ThemeContextValue } from './theme';
 export interface AttachmentRead {
   id: number;
   prompt_id: number | null;
-  filename: string;
+  file_name: string;  // 后端返回的字段名
   original_filename: string;
   file_size: number;
   mime_type: string;
-  thumbnail_path: string | null;
+  file_path: string;  // 后端返回的完整文件路径
+  thumbnail_path: string | null;  // 后端返回的缩略图路径
   file_metadata: Record<string, any> | null;
   created_at: string;
   updated_at: string;
-  download_url: string;  // 后端返回的是 download_url，不是 url
-  thumbnail_url: string | null;
 }
 
 // 提示词数据结构

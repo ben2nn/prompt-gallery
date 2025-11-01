@@ -110,12 +110,12 @@ export const useInfinitePrompts = (params: UseInfinitePromptsParams = {}): UseIn
 
   // 加载更多数据
   const loadMore = useCallback(async () => {
-    if (!hasMore || loading) return;
+    if (!hasMore || isLoadingRef.current) return;
     
     const nextPage = page + 1;
     setPage(nextPage);
     await fetchPrompts(nextPage, tags, search, true);
-  }, [hasMore, loading, page, tags, search, fetchPrompts]);
+  }, [hasMore, page, tags, search, fetchPrompts]);
 
   // 重新获取数据（重置到第一页）
   const refetch = useCallback(async () => {
@@ -152,7 +152,8 @@ export const useInfinitePrompts = (params: UseInfinitePromptsParams = {}): UseIn
         clearTimeout(debounceTimerRef.current);
       }
     };
-  }, [tags?.join(','), search, debounceMs, fetchPrompts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tags?.join(',') || '', search, debounceMs]);
 
   return {
     prompts,
